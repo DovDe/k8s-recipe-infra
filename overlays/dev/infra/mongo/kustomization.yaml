@@ -5,6 +5,5 @@ resources:
   - mongo-express.yaml
   - mongo.yaml
   - pvc.yaml
-  - pv.yaml
   - service.yaml
   # - namespace.yaml
