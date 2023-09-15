@@ -16,7 +16,8 @@ spec:
     spec:
       containers:
         - name: auth
-          image:  "10.0.0.103:5000/auth:latest"
+          image:  auth
+          imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 3000
           envFrom:
