@@ -7,7 +7,6 @@ resources:
 
 secretGenerator:
   - name: auth
-    namespace: auth
     literals:
       - JWT_KEY=asdf
       - MONGO_URI=mongodb://root:NotSecure@mongodb.mongo:27017/auth?authSource=admin
