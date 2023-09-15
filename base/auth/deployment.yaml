@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: auth
-          image:  10.0.0.103:5000
+          image:  10.0.0.103:5000/auth:latest
           ports:
             - containerPort: 3000
           envFrom:
