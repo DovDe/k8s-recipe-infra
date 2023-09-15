@@ -1,20 +1,20 @@
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:
-  name: mongo
-  namespace: mongo
-  labels:
-    belongsToNamespace: mongo
-spec:
-  destination:
-    namespace: mongo
-    server: https://kubernetes.default.svc
-  project: default
-  source:
-    path: overlays/dev/infra/mongo
-    repoURL: git@github.com:DovDe/k8s-recipe-infra.git
-    targetRevision: HEAD
-  syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
+# apiVersion: argoproj.io/v1alpha1
+# kind: Application
+# metadata:
+#   name: mongo
+#   namespace: mongo
+#   labels:
+#     belongsToNamespace: mongo
+# spec:
+#   destination:
+#     namespace: mongo
+#     server: https://kubernetes.default.svc
+#   project: default
+#   source:
+#     path: overlays/dev/infra/mongo
+#     repoURL: git@github.com:DovDe/k8s-recipe-infra.git
+#     targetRevision: HEAD
+#   syncPolicy:
+#     automated:
+#       prune: true
+#       selfHeal: true
