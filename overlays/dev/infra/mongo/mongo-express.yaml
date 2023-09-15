@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mongo-express
+  namespace: mongo
+  labels:
+    app: mongo-express
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mongo-express
+  template:
+    metadata:
+      labels:
+        app: mongo-express
+    spec:
+      containers:
+        - name: mongo-express
+          image: mongo-express
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "128Mi"
+          env:
+            - name: ME_CONFIG_MONGODB_ADMINUSERNAME
+              value: "root"
+            - name: ME_CONFIG_MONGODB_ADMINPASSWORD
+              value: "NotSecure"
+            - name: ME_CONFIG_MONGODB_URL
+              value: "mongodb://root:NotSecure@mongodb.mongo:27017/"
+          volumeMounts:
+            - name: data
+              mountPath: /data/db
+      volumes:
+        - name: data
+          persistentVolumeClaim:
+            claimName: mongodb-pvc
